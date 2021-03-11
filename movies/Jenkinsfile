@@ -134,7 +134,7 @@ pipeline {
                 echo '### Creating a new app in Staging ###'
                 // TODO: Create a new app in staging and expose the service
                 sh '''
-                   oc new-app --as-deployment-config -i ${DEV_PROJECT}/${APP_NAME}:latest --name ${APP_NAME} -n     ${STAGE_PROJECT}
+                   oc new-app --as-deployment-config -i ${APP_NAME}:stage --name ${APP_NAME} -n     ${STAGE_PROJECT}
                    oc expose svc ${APP_NAME} -n ${STAGE_PROJECT}
                   '''
             }
